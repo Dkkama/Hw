@@ -1,0 +1,105 @@
+#1
+#def fuel_needed():
+#    km = float(input("Enter km: "))
+#    fuel = km + 100
+#    if km > 0 and fuel > 1500:
+#        print("You will need ", fuel, " of fuel")
+#    else:
+#        print("Error:(")
+
+#fuel_needed()
+
+#2
+def checker(password):
+    if len(password) >= 8:
+        return True
+    else:
+        return False
+
+password = str(input("Enter your password: "))
+checker(password)
+
+if checker(password) == True:
+    print("True")
+else:
+    print("False")
+    
+#3
+db_user = ['Sample', 'Anastasia', 'Aray', 'Kamilya']
+db_password = [0001, 0002, 0003, 0004]
+access = False
+
+user = str(input("Enter user name: "))
+password = int(input("Enter password: "))
+
+for i in range(0, 4):
+    if user == db_user[i] and password == db_password[i]:
+        access = True
+
+if access == True:
+    print("You are in the system")
+else:
+    print("You entered the wrong user name or password. Try again")
+
+#5
+# file = "myData.txt"
+# open_file = open(file, "r")
+# open_thefile = open_file.read()
+# open_file.close()
+# print(open_thefile.read())
+
+#6
+# def write_string():
+#     with open("string.txt", "w") as file:
+#         string = input("Enter a string: ")
+#         file.write("Your string: " + string + "\n")
+#
+# write_string()
+
+#7
+total = 0
+def calc_total():
+    with open("totalData.txt", "w") as file:
+        num = int(input("Enter a number: "))
+        while num != 0:
+            num = int(input("Enter a number: "))
+            total = total + num
+            file.write("Your total: " + total + "\n")
+
+calc_total()
+
+        
+#8    
+def converter_1():
+    sec = int(input("Enter second: "))
+    min = sec // 60
+    s = sec %  60
+    print(min, " minutes ", s, " seconds")
+
+def converter_2():
+    mile = 0.621371
+    kmph = int(input("Enter the speed in km/h: "))
+    print("The speed in miles/h: ", kmph * mile)
+   
+def converter_3():
+    h = int(input("Enter the height: "))
+    w = int(input("Enter the width: "))
+    p = (h * w) / 8
+    t = (h * w) / 5
+    if (h * w) % 8 != 0:
+        p += 1
+    if (h * w) % 5 != 0:
+        t += 1
+       
+    print("The amount of paint required: ", p)
+    print("The amount of tints required: ", t)
+
+def main():
+    task = int(input("Enter which task u want to laucher "))
+    if task == 1:
+        converter_1()
+    elif task == 2:
+        converter_2()
+    elif task == 3:
+        converter_3()
+main()
